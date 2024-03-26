@@ -1,0 +1,10 @@
+type Query {
+    basicData: [BasicData]
+}
+
+
+type BasicData {
+    id: ID!
+    firstName: String!
+    lastName: String!
+}
