@@ -1,8 +1,9 @@
 package abschluss.ano.ipa.ipavorbereitung.domain.basicdata;
 
 import abschluss.ano.ipa.ipavorbereitung.config.generic.ExtendedEntity;
-import abschluss.ano.ipa.ipavorbereitung.domain.contactdata.Contactdata;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "basicData")
