@@ -4,6 +4,10 @@ import abschluss.ano.ipa.ipavorbereitung.config.error.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 import static abschluss.ano.ipa.ipavorbereitung.utils.Constants.*;
 
 @Service
@@ -49,5 +53,35 @@ public class ContactdataServiceImplementation {
         }
     }
 
+
+    public Contactdata getContactDataById(String uuid) {
+        Optional<Contactdata> contactdata = contactdataRepository.findById(uuid);
+
+        if (contactdata.isPresent()) {
+            return contactdata.get();
+        } else {
+            throw new NoSuchElementException(String.format(NO_SUCH_ELEMENT_ERROR_MSG, uuid));
+        }
+    }
+
+
+    public List<Contactdata> getAllContactDatas() {
+        if (contactdataRepository.findAll().isEmpty()) {
+            throw new NoSuchElementException("No Contact Data found in the database");
+        }
+        return contactdataRepository.findAll();
+    }
+
+    public String deleteContactDataById(String uuid) {
+        if (!contactdataRepository.existsById(uuid)) {
+            throw new NoSuchElementException(String.format(NO_SUCH_ELEMENT_ERROR_MSG, uuid));
+        }
+        contactdataRepository.deleteById(uuid);
+        return String.format("Deleted Contact Data by id %s successfully", uuid);
+    }
+
+    public void deleteAllCities() {
+        contactdataRepository.deleteAll();
+    }
 
 }

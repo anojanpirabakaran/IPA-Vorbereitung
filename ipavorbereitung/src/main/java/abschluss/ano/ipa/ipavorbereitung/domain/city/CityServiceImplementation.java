@@ -62,7 +62,7 @@ public class CityServiceImplementation {
 
     public List<City> getAllCities() {
         if (repository.findAll().isEmpty()) {
-            throw new NoSuchElementException("No User found in the database");
+            throw new NoSuchElementException("No City found in the database");
         }
         return repository.findAll();
     }
