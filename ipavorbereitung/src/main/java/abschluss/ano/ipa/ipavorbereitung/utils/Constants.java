@@ -16,4 +16,10 @@ public class Constants {
     public static String CONTACT_DATA_NOT_FOUND_MSG = "";
 
     public static String CONTACT_DATA_UPDATING = "";
+
+    public static String BASIC_DATA_CANNOT_BE_CREATED = "Customer already exists with the same Firstname, Lastname and Date of Birth";
+
+    public static String BASIC_DATA_UPDATING = "";
+
+    public static String BASIC_DATA_NOT_FOUND = "";
 }
