@@ -1,0 +1,49 @@
+openapi: "3.0.3"
+info:
+  title: "ipavorbereitung API"
+  description: "ipavorbereitung API"
+  version: "1.0.0"
+servers:
+  - url: "https://ipavorbereitung"
+paths:
+  /contact-data:
+    get:
+      summary: "GET contact-data"
+      operationId: "getAll"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Contactdata"
+  /contact-data/{id}:
+    get:
+      summary: "GET contact-data/{id}"
+      operationId: "getContactDataById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Contactdata"
+components:
+  schemas:
+    Contactdata:
+      type: "object"
+      properties:
+        email:
+          type: "string"
+        phoneNumber:
+          type: "string"
+        id:
+          type: "string"
