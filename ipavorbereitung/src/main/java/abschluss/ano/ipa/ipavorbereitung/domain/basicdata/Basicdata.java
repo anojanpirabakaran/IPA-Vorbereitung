@@ -9,10 +9,10 @@ import jakarta.persistence.*;
 @Table(name = "basicData")
 public class Basicdata extends ExtendedEntity {
 
-    @Column(name = "saluation", nullable = true)
+    @Column(name = "salutation", nullable = true)
     private String salutation;
 
-    @Column(name = "firstName", nullable = true)
+    @Column(name = "firstName", nullable = false)
     private String firstName;
 
     @Column(name = "lastName", nullable = false)
@@ -22,11 +22,11 @@ public class Basicdata extends ExtendedEntity {
     private String dateOfBirth;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "addressData_id", referencedColumnName = "id")
+    @JoinColumn(name = "addressData_id", referencedColumnName = "id", nullable = false)
     private Addressdata addressdata;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "contactData_id", referencedColumnName = "id")
+    @JoinColumn(name = "contactData_id", referencedColumnName = "id", nullable = false)
     private Contactdata contactdata;
 
     public String getSalutation() {

@@ -6052,3 +6052,22 @@ INSERT INTO city(id, name, postal_code) VALUES('6051','Zwillikon','8909');
 INSERT INTO city(id, name, postal_code) VALUES('6052','Zwingen','4222');
 INSERT INTO city(id, name, postal_code) VALUES('6053','Gondo','3907');
 INSERT INTO city(id, name, postal_code) VALUES('6054','Zwischenflueh','3756');
+
+
+INSERT INTO contact_data(id, mail, phone_number) VALUES ('1', 'max@gmail.com', '0784548751');
+INSERT INTO contact_data(id, mail, phone_number) VALUES ('2', 'mustermann@gmail.com', '0784548754');
+INSERT INTO contact_data(id, mail, phone_number) VALUES ('3', 'jane@gmail.com', '0784548753');
+INSERT INTO contact_data(id, mail, phone_number) VALUES ('4', 'john@gmail.com', '0784548756');
+INSERT INTO contact_data(id, mail, phone_number) VALUES ('5', 'doe@gmail.com', '0784548758');
+
+INSERT INTO address_data(id, street_name, street_number, city_id) VALUES ('1','Musterstrasse','1','3732');
+INSERT INTO address_data(id, street_name, street_number, city_id) VALUES ('2','Landstrasse','1','3732');
+INSERT INTO address_data(id, street_name, street_number, city_id) VALUES ('3','Hauptstrasse','1','3224');
+INSERT INTO address_data(id, street_name, street_number, city_id) VALUES ('4','Seestrasse','','6043');
+INSERT INTO address_data(id, street_name, street_number, city_id) VALUES ('5','Musterstrasse','','3224');
+
+INSERT INTO basic_data(id, salutation, first_name, last_name, date_of_birth, contact_data_id, address_data_id) VALUES ('1','Herr','Max','Meier','15.03.2024','1','1');
+INSERT INTO basic_data(id, salutation, first_name, last_name, date_of_birth, contact_data_id, address_data_id) VALUES ('2','Herr','Martin','Mustermann','20.11.1945','2','2');
+INSERT INTO basic_data(id, salutation, first_name, last_name, date_of_birth, contact_data_id, address_data_id) VALUES ('3','Frau','Jane','Doe','31.08.1987','3','3');
+INSERT INTO basic_data(id, salutation, first_name, last_name, date_of_birth, contact_data_id, address_data_id) VALUES ('4','Frau','Johana','Joe','14.02.2007','4','4');
+INSERT INTO basic_data(id, salutation, first_name, last_name, date_of_birth, contact_data_id, address_data_id) VALUES ('5','','Doe','David','01.01.2000','5','5');

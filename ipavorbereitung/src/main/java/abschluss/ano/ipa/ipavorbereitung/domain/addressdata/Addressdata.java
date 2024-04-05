@@ -15,7 +15,7 @@ public class Addressdata extends ExtendedEntity {
     private String streetNumber;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "city_id", referencedColumnName = "id")
+    @JoinColumn(name = "city_id", referencedColumnName = "id", nullable = false)
     private City city;
 
     public String getStreetName() {
