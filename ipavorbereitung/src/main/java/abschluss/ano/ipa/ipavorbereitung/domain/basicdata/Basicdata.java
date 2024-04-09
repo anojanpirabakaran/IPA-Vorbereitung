@@ -6,7 +6,7 @@ import abschluss.ano.ipa.ipavorbereitung.domain.contactdata.Contactdata;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "basicData")
+@Table(name = "basic_data")
 public class Basicdata extends ExtendedEntity {
 
     @Column(name = "salutation", nullable = true)

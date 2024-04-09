@@ -5,7 +5,7 @@ import abschluss.ano.ipa.ipavorbereitung.domain.city.City;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "addressData")
+@Table(name = "address_data")
 public class Addressdata extends ExtendedEntity {
 
     @Column(name = "street_name", nullable = false)
