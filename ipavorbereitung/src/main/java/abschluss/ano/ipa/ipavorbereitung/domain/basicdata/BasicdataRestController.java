@@ -1,5 +1,6 @@
 package abschluss.ano.ipa.ipavorbereitung.domain.basicdata;
 
+import abschluss.ano.ipa.ipavorbereitung.domain.basicdata.mapper.BasicdataMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,21 +16,35 @@ import java.util.List;
 public class BasicdataRestController {
 
     private final BasicdataServiceImplementation serviceImplementation;
+    private final BasicdataMapper basicdataMapper;
 
     @Autowired
-    public BasicdataRestController(BasicdataServiceImplementation serviceImplementation) {
+    public BasicdataRestController(BasicdataServiceImplementation serviceImplementation, BasicdataMapper basicdataMapper) {
         this.serviceImplementation = serviceImplementation;
+        this.basicdataMapper = basicdataMapper;
     }
 
-    @GetMapping({"", "/"})
+    @GetMapping({"/FAT", "/FAT/"})
     public ResponseEntity<List<Basicdata>> getAll() {
         List<Basicdata> basicdata = serviceImplementation.getAllBasicData();
         return new ResponseEntity<>(basicdata, HttpStatus.OK);
     }
 
-    @GetMapping({"/{id}", "/{id}/"})
+    @GetMapping({"/FAT/{id}", "/FAT/{id}/"})
     public ResponseEntity<Basicdata> getBasicDataById(@PathVariable String id) {
         Basicdata basicdata = serviceImplementation.getBasicDataById(id);
         return new ResponseEntity<>(basicdata, HttpStatus.OK);
+    }
+
+    @GetMapping({"/LEAN", "/LEAN/"})
+    public ResponseEntity<List<BasicdataDTO>> getAllBasicDatasDTO() {
+        List<Basicdata> basicdata = serviceImplementation.getAllBasicData();
+        return new ResponseEntity<>(basicdataMapper.toDTOs(basicdata), HttpStatus.OK);
+    }
+
+    @GetMapping({"/LEAN/{id}", "/LEAN/{id}/"})
+    public ResponseEntity<BasicdataDTO> getBasicDataByIdDTO(@PathVariable String id) {
+        Basicdata basicdata = serviceImplementation.getBasicDataById(id);
+        return new ResponseEntity<>(basicdataMapper.toDTO(basicdata), HttpStatus.OK);
     }
 }
